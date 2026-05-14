@@ -270,6 +270,99 @@
         box-shadow: var(--shadow);
       }
 
+      .ceiling-stack {
+        display: grid;
+        gap: clamp(1rem, 1.7vw, 1.55rem);
+        position: relative;
+      }
+
+      .ceiling-stack::before {
+        content: "";
+        position: absolute;
+        left: clamp(1.15rem, 1.8vw, 1.7rem);
+        top: 9%;
+        bottom: 9%;
+        width: 2px;
+        background: linear-gradient(180deg, var(--accent), rgba(192, 112, 48, 0.12));
+        opacity: 0.75;
+      }
+
+      .ceiling-stack .paper-card {
+        min-height: 24vh;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: clamp(0.7rem, 1.2vw, 1rem);
+        padding: clamp(1rem, 1.65vw, 1.55rem);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ceiling-stack .paper-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(192, 112, 48, 0.12), transparent 34%),
+          radial-gradient(circle at 82% 8%, rgba(134, 216, 211, 0.16), transparent 30%);
+        pointer-events: none;
+      }
+
+      .ceiling-number {
+        width: clamp(2.35rem, 3.6vw, 3.2rem);
+        height: clamp(2.35rem, 3.6vw, 3.2rem);
+        border: 1px solid rgba(192, 112, 48, 0.65);
+        background: var(--dark);
+        color: var(--accent-2);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-display);
+        font-size: clamp(1.05rem, 1.8vw, 1.55rem);
+        font-weight: 800;
+        line-height: 1;
+        z-index: 1;
+      }
+
+      .ceiling-copy {
+        display: grid;
+        gap: 0.65rem;
+        z-index: 1;
+      }
+
+      .ceiling-stack h3 {
+        font-size: clamp(1.4rem, 2.25vw, 2.05rem);
+      }
+
+      .ceiling-stack .muted {
+        font-size: clamp(0.9rem, 1.15vw, 1.05rem);
+      }
+
+      .ceiling-detail {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.55rem;
+        list-style: none;
+      }
+
+      .ceiling-detail li {
+        border: 1px solid rgba(30, 40, 32, 0.12);
+        background: rgba(30, 40, 32, 0.035);
+        padding: 0.52rem 0.58rem;
+        color: var(--dark-soft);
+        font-size: clamp(0.68rem, 0.86vw, 0.82rem);
+        line-height: 1.42;
+      }
+
+      .ceiling-detail strong {
+        display: block;
+        margin-bottom: 0.18rem;
+        color: var(--dark);
+        font-family: var(--font-mono);
+        font-size: 0.82em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
       .paper-card .muted,
       .cover-note .muted,
       .loop-card .muted,
@@ -1411,16 +1504,32 @@
           <h2 class="reveal">复杂任务失败，通常不是模型不聪明。</h2>
           <p class="lead reveal">更常见的问题是认知架构不稳：上下文越滚越脏，同一个智能体又天然不擅长审查自己。</p>
         </div>
-        <div class="grid-2" style="gap: 1rem">
+        <div class="ceiling-stack">
           <div class="paper-card reveal">
-            <span class="pill">天花板 01</span>
-            <h3>上下文窗口侵蚀</h3>
-            <p class="muted">第 50 轮工具调用，可能已经和第 5 轮架构决策冲突。</p>
+            <div class="ceiling-number">01</div>
+            <div class="ceiling-copy">
+              <span class="pill">上下文天花板</span>
+              <h3>上下文窗口侵蚀</h3>
+              <p class="muted">长任务不是线性变聪明，而是不断把旧约束、旧决策和新证据塞进同一个短期记忆里。</p>
+              <ul class="ceiling-detail">
+                <li><strong>机制</strong>第 50 轮工具调用时，早期架构边界已经被摘要压扁。</li>
+                <li><strong>表现</strong>开始重复探索、忘记限制、把已否决方案重新拿出来。</li>
+                <li><strong>后果</strong>项目越接近收尾，越容易和第 5 轮的关键决策冲突。</li>
+              </ul>
+            </div>
           </div>
           <div class="paper-card reveal">
-            <span class="pill">天花板 02</span>
-            <h3>自我评估失灵</h3>
-            <p class="muted">先写代码，再评价自己的代码，天然容易给出正面判断。</p>
+            <div class="ceiling-number">02</div>
+            <div class="ceiling-copy">
+              <span class="pill">评估天花板</span>
+              <h3>自我评估失灵</h3>
+              <p class="muted">同一个智能体既是作者又是审稿人，会天然偏向解释自己的输出，而不是主动寻找反例。</p>
+              <ul class="ceiling-detail">
+                <li><strong>机制</strong>生成路径和评估路径共享同一套盲点。</li>
+                <li><strong>表现</strong>看见局部通过就宣布完成，忽略端到端证据。</li>
+                <li><strong>后果</strong>缺陷被包装成“基本完成”，回滚成本被推到后面。</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
