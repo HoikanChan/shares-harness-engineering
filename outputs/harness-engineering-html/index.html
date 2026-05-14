@@ -551,6 +551,15 @@
         color: var(--ink-dim);
       }
 
+      .stat .story strong {
+        display: inline;
+        font-family: var(--font-body);
+        font-size: inherit;
+        line-height: inherit;
+        color: var(--ink-soft);
+        font-weight: 700;
+      }
+
       .spiral {
         position: relative;
         min-height: 64vh;
@@ -591,8 +600,8 @@
 
       .phase-node {
         position: absolute;
-        width: clamp(9.8rem, 13.5vw, 13.4rem);
-        padding: 0.8rem 1rem;
+        width: clamp(10.2rem, 14.2vw, 14rem);
+        padding: 0.72rem 0.9rem;
         background: rgba(240, 232, 210, 0.96);
         color: var(--dark);
         box-shadow: var(--shadow);
@@ -635,10 +644,21 @@
       .p4 { left: 3%; bottom: 17%; }
       .p5 { left: 8%; top: 20%; }
       .p6 {
-        left: 40%;
+        left: 38%;
         top: 1%;
+        width: clamp(10.8rem, 15vw, 15rem);
         background: var(--accent);
         color: var(--paper);
+      }
+
+      .p6 .phase-num {
+        border-color: rgba(240, 232, 210, 0.78);
+        color: var(--paper);
+        background: rgba(30, 40, 32, 0.18);
+      }
+
+      .p6 .term {
+        color: rgba(240, 232, 210, 0.72);
       }
 
       .phase-node .pill {
@@ -707,19 +727,19 @@
 
       .compression-map {
         display: grid;
-        grid-template-columns: 1fr 0.9fr 1fr;
-        gap: 1rem;
+        grid-template-columns: 1fr auto 1fr;
+        gap: clamp(0.8rem, 1.8vw, 1.6rem);
         align-items: center;
       }
 
       .compress-card {
         border: 1px solid var(--line);
         background: rgba(240, 232, 210, 0.06);
-        padding: clamp(1rem, 2vw, 2rem);
-        min-height: 42vh;
+        padding: clamp(1rem, 1.6vw, 1.55rem);
+        min-height: 43vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 1rem;
       }
 
       .compress-card.highlight {
@@ -729,6 +749,204 @@
 
       .compress-card.highlight .muted {
         color: var(--dark-soft);
+      }
+
+      .context-arrow {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 4.8rem);
+        color: var(--accent);
+        line-height: 1;
+      }
+
+      .loss-diagram {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0.65rem;
+        align-items: stretch;
+        min-height: 16vh;
+      }
+
+      .context-stack-mini {
+        display: grid;
+        gap: 0.42rem;
+        align-content: start;
+      }
+
+      .context-line {
+        display: flex;
+        align-items: center;
+        min-height: 1.75rem;
+        padding: 0.28rem 0.5rem;
+        border: 1px solid rgba(240, 232, 210, 0.18);
+        background: rgba(240, 232, 210, 0.08);
+        color: var(--ink-soft);
+        font-size: clamp(0.62rem, 0.78vw, 0.78rem);
+        line-height: 1.2;
+      }
+
+      .context-line.keep {
+        border-color: rgba(134, 216, 211, 0.42);
+        color: var(--ink);
+      }
+
+      .context-line.faded {
+        opacity: 0.52;
+      }
+
+      .context-line.lost {
+        color: rgba(240, 232, 210, 0.36);
+        background: repeating-linear-gradient(
+          -45deg,
+          rgba(240, 232, 210, 0.05),
+          rgba(240, 232, 210, 0.05) 6px,
+          rgba(30, 40, 32, 0.2) 6px,
+          rgba(30, 40, 32, 0.2) 12px
+        );
+      }
+
+      .mini-arrow {
+        display: grid;
+        place-items: center;
+        color: var(--accent-2);
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+      }
+
+      .summary-block {
+        border: 1px solid rgba(192, 112, 48, 0.5);
+        background: rgba(192, 112, 48, 0.14);
+        padding: 0.55rem;
+        color: var(--ink);
+        font-size: clamp(0.65rem, 0.82vw, 0.82rem);
+        line-height: 1.35;
+      }
+
+      .loss-notes,
+      .handoff-list {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .loss-notes span,
+      .handoff-list span {
+        font-size: clamp(0.68rem, 0.86vw, 0.86rem);
+        line-height: 1.35;
+        color: var(--ink-soft);
+      }
+
+      .loss-notes span::before,
+      .handoff-list span::before {
+        content: "— ";
+        color: var(--accent-2);
+      }
+
+      .subagent-diagram {
+        display: grid;
+        grid-template-columns: 0.9fr 1fr;
+        gap: 0.65rem;
+        align-items: center;
+      }
+
+      .agent-box {
+        border: 1px solid rgba(30, 40, 32, 0.18);
+        background: rgba(30, 40, 32, 0.06);
+        padding: 0.7rem;
+        min-height: 9.5rem;
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .agent-box strong {
+        font-family: var(--font-display);
+        font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+      }
+
+      .agent-box span {
+        font-size: clamp(0.64rem, 0.78vw, 0.78rem);
+        line-height: 1.32;
+        color: var(--dark-soft);
+        padding: 0.25rem 0.45rem;
+        background: rgba(30, 40, 32, 0.06);
+      }
+
+      .child-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+
+      .child-box {
+        border: 1px solid rgba(30, 40, 32, 0.18);
+        background: rgba(30, 40, 32, 0.08);
+        padding: 0.55rem;
+        min-height: 4.2rem;
+        display: grid;
+        align-content: center;
+        gap: 0.25rem;
+      }
+
+      .child-box b {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+      }
+
+      .child-box small {
+        color: var(--dark-soft);
+        font-size: 0.68rem;
+        line-height: 1.25;
+      }
+
+      .evidence-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.4rem;
+      }
+
+      .evidence-strip span {
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: clamp(0.58rem, 0.7vw, 0.7rem);
+        color: var(--paper);
+        background: var(--dark);
+        padding: 0.32rem 0.2rem;
+      }
+
+      .context-limit .content {
+        gap: 0.85rem;
+        padding: min(2vh, 1rem) 0;
+      }
+
+      .context-limit h2 {
+        font-size: clamp(2.2rem, 5.6vw, 5.7rem);
+      }
+
+      .context-limit .compress-card {
+        min-height: 34vh;
+        padding: clamp(0.85rem, 1.35vw, 1.3rem);
+        gap: 0.62rem;
+      }
+
+      .context-limit .loss-diagram {
+        min-height: 12vh;
+      }
+
+      .context-limit .context-line {
+        min-height: 1.38rem;
+        padding: 0.18rem 0.42rem;
+      }
+
+      .context-limit .summary-block {
+        padding: 0.42rem;
+      }
+
+      .context-limit .agent-box {
+        min-height: 7.6rem;
+        padding: 0.58rem;
+      }
+
+      .context-limit .child-box {
+        min-height: 3.4rem;
+        padding: 0.45rem;
       }
 
       .ralph {
@@ -1040,7 +1258,7 @@
       <footer class="foot"><span>牵引系统是架构</span><span>不是提示词技巧</span></footer>
     </section>
 
-    <section class="slide dark">
+    <section class="slide dark context-limit">
       <header class="chrome"><span>三次迁移</span><span>03</span></header>
       <div class="content">
         <div class="stack">
@@ -1118,13 +1336,53 @@
           <div class="compress-card">
             <span class="pill">问题</span>
             <h3>压缩不是无损的</h3>
+            <div class="loss-diagram">
+              <div class="context-stack-mini">
+                <div class="context-line keep">目标：重构支付流程</div>
+                <div class="context-line keep">约束：兼容旧接口</div>
+                <div class="context-line">证据：测试截图</div>
+                <div class="context-line">决策：不改数据表</div>
+                <div class="context-line faded">失败原因：权限边界</div>
+              </div>
+              <div class="mini-arrow">→</div>
+              <div class="context-stack-mini">
+                <div class="summary-block">摘要：继续完成支付重构，注意兼容性。</div>
+                <div class="context-line lost">旧接口细节丢失</div>
+                <div class="context-line lost">不改表约束丢失</div>
+                <div class="context-line lost">截图证据丢失</div>
+              </div>
+            </div>
             <p class="muted">历史被总结、裁剪以后，细节会丢，早期约束可能只剩一句摘要。</p>
+            <div class="loss-notes">
+              <span>约束变短，执行空间反而变模糊</span>
+              <span>证据被折叠，后续判断只能靠印象</span>
+            </div>
           </div>
           <div class="context-arrow">→</div>
           <div class="compress-card highlight">
             <span class="pill">解法</span>
             <h3>Subagent 隔离上下文</h3>
+            <div class="subagent-diagram">
+              <div class="agent-box">
+                <strong>主智能体</strong>
+                <span>目标</span>
+                <span>计划</span>
+                <span>验收标准</span>
+                <span>最终整合</span>
+              </div>
+              <div class="child-grid">
+                <div class="child-box"><b>子任务 A</b><small>只读相关文件</small></div>
+                <div class="child-box"><b>子任务 B</b><small>独立工作树</small></div>
+                <div class="child-box"><b>子任务 C</b><small>短上下文执行</small></div>
+                <div class="child-box"><b>返回</b><small>摘要 + diff + 证据</small></div>
+              </div>
+            </div>
             <p class="muted">主智能体保留目标、计划和验收标准；子智能体只拿一个边界清楚的小任务，完成后返回摘要、diff 和证据。</p>
+            <div class="evidence-strip">
+              <span>SUMMARY</span>
+              <span>DIFF</span>
+              <span>EVIDENCE</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1197,6 +1455,28 @@
     </section>
 
     <section class="slide dark">
+      <header class="chrome"><span>Ralph Loop</span><span>08</span></header>
+      <div class="content ralph">
+        <div class="stack">
+          <span class="kicker reveal">真实反馈后的迭代</span>
+          <h2 class="reveal">重点不是让模型想更久，而是让它看到反馈后重来。</h2>
+          <ul class="bullet reveal">
+            <li>反馈可以来自编译器、测试、lint、Playwright 截图。</li>
+            <li>每轮只保留摘要和关键证据，完整日志放回文件系统。</li>
+            <li>循环跑久了也会撑爆上下文，所以需要摘要、证据和隔离。</li>
+          </ul>
+        </div>
+        <div class="ralph-loop reveal">
+          <div class="ralph-node r1"><span class="pill">1</span><h3>Generate v1</h3><p class="muted">生成第一版</p></div>
+          <div class="ralph-node r2"><span class="pill">2</span><h3>Evaluate</h3><p class="muted">测试、截图、评审器验收</p></div>
+          <div class="ralph-node r3"><span class="pill">3</span><h3>Feedback</h3><p class="muted">只回传关键证据</p></div>
+          <div class="ralph-node r4"><span class="pill">4</span><h3>Generate v2</h3><p>带反馈再生成</p></div>
+        </div>
+      </div>
+      <footer class="foot"><span>Generate → Evaluate → Feedback → Generate</span><span>反馈回路比单次思考更可靠</span></footer>
+    </section>
+
+    <section class="slide dark">
       <header class="chrome"><span>翻车类型</span><span>08</span></header>
       <div class="content grid-2">
         <div class="stack">
@@ -1222,10 +1502,10 @@
           <h2 class="reveal">瓶颈不在模型智能，在基础设施。</h2>
         </div>
         <div class="stat-row reveal">
-          <div class="stat"><strong>7</strong><p class="muted">OpenAI Codex 团队规模</p></div>
-          <div class="stat"><strong>1M</strong><p class="muted">自动生成代码行数</p></div>
-          <div class="stat wide"><strong>6.7→68.3%</strong><p class="muted">同模型更换牵引系统后的跃迁</p></div>
-          <div class="stat"><strong>5×</strong><p class="muted">Manus 六个月重写牵引系统次数</p></div>
+          <div class="stat"><strong>7</strong><p class="muted">OpenAI Codex 团队规模</p><p class="story"><strong>小团队做大规模工程：</strong>他们没有靠人海盯 agent，而是把任务拆分、权限控制、测试和审查做成默认流程。</p></div>
+          <div class="stat"><strong>1M</strong><p class="muted">自动生成代码行数</p><p class="story"><strong>百万行不是一次生成：</strong>每次只让 agent 处理一个清晰切片，跑工具、留证据、过门禁，持续累积产出。</p></div>
+          <div class="stat wide"><strong>6.7→68.3%</strong><p class="muted">同模型更换牵引系统后的跃迁</p><p class="story"><strong>LangChain 做对照实验：</strong>模型不换，只把任务拆解、执行环境和评估回路换成 harness，成功率从个位数跃升。</p></div>
+          <div class="stat"><strong>5×</strong><p class="muted">Manus 重写牵引系统</p><p class="story"><strong>半年多次重构：</strong>他们反复改 agent 的工作台、记忆、工具调用和反馈链路，收益大于单纯更换模型。</p></div>
         </div>
       </div>
       <footer class="foot"><span>牵引系统是一套工程纪律</span><span>不是调提示词</span></footer>
@@ -1241,12 +1521,12 @@
             <p class="muted">project.md / CLAUDE.md / MCP 工具配置是入口底座，不在循环里；它负责让新会话快速进入现场。</p>
           </div>
           <div class="phase-loop">
-            <div class="phase-node p1"><span class="pill">1</span><h3>对齐<br />Alignment</h3><p class="muted">反向盘问 / 提问澄清</p></div>
-            <div class="phase-node p2"><span class="pill">2</span><h3>设计<br />Design</h3><p class="muted">OpenSpec / 纵向切片</p></div>
-            <div class="phase-node p3"><span class="pill">3</span><h3>实现<br />Implement</h3><p class="muted">TDD / 子智能体 / 工作树</p></div>
-            <div class="phase-node p4"><span class="pill">4</span><h3>验证<br />Verify</h3><p class="muted">测试 / 评审器 / 截图</p></div>
-            <div class="phase-node p5"><span class="pill">5</span><h3>代码审查<br />Code Review</h3><p class="muted">PR 机器人 / 架构债扫描</p></div>
-            <div class="phase-node p6"><span class="pill">6</span><h3>复盘<br />Retrospective</h3><p>规则、规格、技能、评审器回流</p></div>
+            <div class="phase-node p1"><div class="phase-head"><span class="phase-num">1</span><h3>对齐<br /><span class="term">Alignment</span></h3></div><p class="muted">反向盘问 / 提问澄清</p></div>
+            <div class="phase-node p2"><div class="phase-head"><span class="phase-num">2</span><h3>设计<br /><span class="term">Design</span></h3></div><p class="muted">OpenSpec / 纵向切片</p></div>
+            <div class="phase-node p3"><div class="phase-head"><span class="phase-num">3</span><h3>实现<br /><span class="term">Implement</span></h3></div><p class="muted">TDD / 子智能体 / 工作树</p></div>
+            <div class="phase-node p4"><div class="phase-head"><span class="phase-num">4</span><h3>验证<br /><span class="term">Verify</span></h3></div><p class="muted">测试 / 评审器 / 截图</p></div>
+            <div class="phase-node p5"><div class="phase-head"><span class="phase-num">5</span><h3>代码审查<br /><span class="term">Code Review</span></h3></div><p class="muted">PR 机器人 / 架构债扫描</p></div>
+            <div class="phase-node p6"><div class="phase-head"><span class="phase-num">6</span><h3>复盘<br /><span class="term">Retro</span></h3></div><p>规则 / 规格 / 技能 / 评审器回流</p></div>
           </div>
         </div>
       </div>
@@ -1258,16 +1538,15 @@
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">启动装载 · Bootstrap</span>
-          <h2 class="reveal">先让智能体读懂项目。</h2>
-          <p class="lead reveal">`openspec/project.md` 像给新同事做概要设计入职介绍：目标、模块、数据流、部署形态、边界约束、常用命令。</p>
+          <h2 class="reveal">先要智能体明确项目目标。</h2>
+          <p class="lead reveal">`openspec/project.md` 像给新同事做概要设计入职介绍：系统为什么存在、主要用户是谁、关键 workflow 是什么、哪些边界不能乱动。</p>
         </div>
-        <div class="folder reveal">openspec/
-  project.md
-  specs/&lt;capability&gt;/spec.md
-  changes/&lt;change-id&gt;/
-    proposal.md
-    design.md
-    tasks.md</div>
+        <div class="grid-2 reveal" style="gap: 1rem">
+          <div class="card"><h3>项目目标</h3><p class="muted">这个系统解决什么问题，成功是什么样。</p></div>
+          <div class="card"><h3>架构边界</h3><p class="muted">哪些模块稳定，哪些地方不能越界。</p></div>
+          <div class="card"><h3>关键工作流</h3><p class="muted">用户如何进入系统，哪些路径最重要。</p></div>
+          <div class="card"><h3>操作入口</h3><p class="muted">常用命令、测试命令、日志和排障入口。</p></div>
+        </div>
       </div>
       <footer class="foot"><span>到位信号：新会话能讲清项目</span><span>项目上下文是活文档</span></footer>
     </section>
@@ -1315,6 +1594,13 @@
           <div class="card"><span class="pill">02</span><h3>实现<br /><span class="term">Implementation</span></h3><p class="muted">按任务清单小步实现</p></div>
           <div class="card"><span class="pill">03</span><h3>归档<br /><span class="term">Archive</span></h3><p class="muted">合并进长期规格库</p></div>
         </div>
+        <div class="folder reveal" style="grid-column: 1 / -1">openspec/
+  project.md
+  specs/&lt;capability&gt;/spec.md
+  changes/&lt;change-id&gt;/
+    proposal.md
+    design.md
+    tasks.md</div>
       </div>
       <footer class="foot"><span>进度持久化在文件系统</span><span>不只存在对话上下文里</span></footer>
     </section>
@@ -1458,7 +1744,7 @@
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">本场收束</span>
-          <h2 class="reveal">牵引工程本质上是基于大模型的软件工程。</h2>
+          <h2 class="reveal">驾驭工程本质上是基于大模型的软件工程。</h2>
         </div>
         <div class="stack reveal">
           <p class="lead">真正稀缺的不再是多写几句提示词，而是定义任务边界、设计反馈回路、控制权限和风险、把失败沉淀成基础设施。</p>
@@ -1489,7 +1775,7 @@
           <a href="https://github.com/openai/symphony">Symphony GitHub repo</a>
         </div>
       </div>
-      <footer class="foot"><span>附录</span><span>牵引工程 Harness Engineering</span></footer>
+      <footer class="foot"><span>附录</span><span>驾驭工程 Harness Engineering</span></footer>
     </section>
 
     <script>
@@ -1498,10 +1784,20 @@
           this.slides = [...document.querySelectorAll(".slide")];
           this.progress = document.getElementById("progress");
           this.index = 0;
+          this.renumber();
           this.observe();
           this.bindKeys();
           this.bindWheel();
           this.update();
+        }
+
+        renumber() {
+          this.slides.forEach((slide, index) => {
+            const marker = slide.querySelector(".chrome span:last-child");
+            if (marker && /^\d+$/.test(marker.textContent.trim())) {
+              marker.textContent = String(index + 1).padStart(2, "0");
+            }
+          });
         }
 
         observe() {

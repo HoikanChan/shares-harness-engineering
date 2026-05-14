@@ -1,0 +1,646 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: 驾驭工程 · Harness Engineering · 2026
+      - heading "Harness Engineering" [level=1] [ref=e6]:
+        - text: Harness
+        - text: Engineering
+      - paragraph [ref=e7]: 突破单智能体天花板：用流程、隔离、反馈和门禁，把会自己跑的模型变成可靠的软件工程劳动力。
+    - img "Harness Engineering abstract operating system visual" [ref=e8]
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]: 开场：失败模式
+      - generic [ref=e12]: "02"
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: 单智能体的两个天花板
+        - heading "复杂任务失败，通常不是模型不聪明。" [level=2] [ref=e16]
+        - paragraph [ref=e17]: 更常见的问题是认知架构不稳：上下文越滚越脏，同一个智能体又天然不擅长审查自己。
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 天花板 01
+          - heading "上下文窗口侵蚀" [level=3] [ref=e21]
+          - paragraph [ref=e22]: 第 50 轮工具调用，可能已经和第 5 轮架构决策冲突。
+        - generic [ref=e23]:
+          - generic [ref=e24]: 天花板 02
+          - heading "自我评估失灵" [level=3] [ref=e25]
+          - paragraph [ref=e26]: 先写代码，再评价自己的代码，天然容易给出正面判断。
+    - generic [ref=e27]:
+      - generic [ref=e28]: 牵引系统是架构
+      - generic [ref=e29]: 不是提示词技巧
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e32]: 三次迁移
+      - generic [ref=e33]: "03"
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: 工程师的工作搬了三次家
+        - heading "从优化指令，到组织信息，再到编排执行系统。" [level=2] [ref=e37]
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: "2022"
+            - heading "提示词工程 Prompt Engineering" [level=3] [ref=e42]:
+              - text: 提示词工程
+              - text: Prompt Engineering
+          - paragraph [ref=e43]: 模型很笨但听话，工程师雕一条“完美提示词”。
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: "2025"
+            - heading "上下文工程 Context Engineering" [level=3] [ref=e47]:
+              - text: 上下文工程
+              - text: Context Engineering
+          - paragraph [ref=e48]: 模型会用工具，工程师决定“给它看什么”。
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: "2026"
+            - heading "驾驭工程 Harness Engineering" [level=3] [ref=e52]:
+              - text: 驾驭工程
+              - text: Harness Engineering
+          - paragraph [ref=e53]: 模型可以自己跑，工程师搭安全、反馈和门禁。
+    - generic [ref=e54]:
+      - generic [ref=e55]: 智能体 = 模型 + 牵引系统
+      - generic [ref=e56]: 提示词和上下文被纳入更大系统
+  - generic [ref=e57]:
+    - generic [ref=e58]:
+      - generic [ref=e59]: 上下文工程
+      - generic [ref=e60]: "04"
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]: 上下文不是只有对话框
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - strong [ref=e66]: 存储里的上下文
+            - generic [ref=e67]:
+              - generic [ref=e68]: 代码
+              - generic [ref=e69]: 文档 / spec
+              - generic [ref=e70]: PR / issue
+              - generic [ref=e71]: 日志 / 截图
+            - paragraph [ref=e72]: 容量大、可持久化，但智能体需要知道去哪里找。
+          - generic [ref=e73]: →
+          - generic [ref=e74]:
+            - strong [ref=e75]: 对话中的上下文
+            - generic [ref=e76]:
+              - generic [ref=e77]: 指令
+              - generic [ref=e78]: 工具
+              - generic [ref=e79]: 状态
+              - generic [ref=e80]: 当前证据
+            - paragraph [ref=e81]: 访问最快，但最贵、最短命、最容易被污染。
+      - generic [ref=e82]:
+        - heading "所有东西都在抢同一个有限窗口。" [level=2] [ref=e83]
+        - list [ref=e84]:
+          - listitem [ref=e85]: — 窗口有限：全塞进去，模型会迷失。
+          - listitem [ref=e86]: — 信息腐烂：中间内容最容易被忘。
+          - listitem [ref=e87]: — 跨会话记忆丢失：新会话像新同事。
+        - paragraph [ref=e88]: 上下文工程的核心不是喂更多信息，而是设计取数机制。
+    - generic [ref=e89]:
+      - generic [ref=e90]: 存储上下文 vs 对话上下文
+      - generic [ref=e91]: 地图，不是百科全书
+  - generic [ref=e92]:
+    - generic [ref=e93]:
+      - generic [ref=e94]: 上下文天花板
+      - generic [ref=e95]: "05"
+    - generic [ref=e96]:
+      - generic [ref=e97]:
+        - generic [ref=e98]: 压缩与隔离
+        - heading "长任务后半段开始漂，通常是上下文被压缩了。" [level=2] [ref=e99]
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - generic [ref=e102]: 问题
+          - heading "压缩不是无损的" [level=3] [ref=e103]
+          - paragraph [ref=e104]: 历史被总结、裁剪以后，细节会丢，早期约束可能只剩一句摘要。
+        - generic [ref=e105]: →
+        - generic [ref=e106]:
+          - generic [ref=e107]: 解法
+          - heading "Subagent 隔离上下文" [level=3] [ref=e108]
+          - paragraph [ref=e109]: 主智能体保留目标、计划和验收标准；子智能体只拿一个边界清楚的小任务，完成后返回摘要、diff 和证据。
+    - generic [ref=e110]:
+      - generic [ref=e111]: Context Engineering 只管单一视角
+      - generic [ref=e112]: Harness 才能管理协作与验收
+  - generic [ref=e113]:
+    - generic [ref=e114]:
+      - generic [ref=e115]: 活文档
+      - generic [ref=e116]: "06"
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e119]: 好的指令档应该像地图，不是六法全书
+        - heading "AGENTS.md / CLAUDE.md 是入口页，不是百科全书。" [level=2] [ref=e120]
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - generic [ref=e123]: 反例
+          - heading "把所有规范塞进上下文" [level=3] [ref=e124]
+          - list [ref=e125]:
+            - listitem [ref=e126]: — 占掉模型注意力
+            - listitem [ref=e127]: — 难维护，难定位
+            - listitem [ref=e128]: — 上下文越长越漂
+        - generic [ref=e129]:
+          - generic [ref=e130]: 正例
+          - heading "给智能体一张项目地图" [level=3] [ref=e131]
+          - list [ref=e132]:
+            - listitem [ref=e133]: — 告诉它去哪里找
+            - listitem [ref=e134]: — 每条规则来自历史失败
+            - listitem [ref=e135]: — 复盘后持续更新
+    - generic [ref=e136]:
+      - generic [ref=e137]: 文档是反馈回路
+      - generic [ref=e138]: 不是静态制品
+  - generic [ref=e139]:
+    - generic [ref=e140]:
+      - generic [ref=e141]: 牵引系统作为操作系统
+      - generic [ref=e142]: "07"
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - generic [ref=e145]: LLM 的操作系统
+        - heading "我们正在重新发明冯·诺依曼架构。" [level=2] [ref=e146]
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - generic [ref=e149]: 处理器 CPU
+          - strong [ref=e150]: LLM
+          - paragraph [ref=e151]: 大语言模型，生成与推理核心
+        - generic [ref=e152]:
+          - generic [ref=e153]: 内存 RAM
+          - strong [ref=e154]: Context
+          - paragraph [ref=e155]: 上下文，快速但有限
+        - generic [ref=e156]:
+          - generic [ref=e157]: 磁盘 Disk
+          - strong [ref=e158]: Files
+          - paragraph [ref=e159]: 文件系统，持久化项目知识
+        - generic [ref=e160]:
+          - generic [ref=e161]: 驱动 Drivers
+          - strong [ref=e162]: Tools
+          - paragraph [ref=e163]: 工具：读写、浏览器、MCP
+        - generic [ref=e164]:
+          - generic [ref=e165]: 操作系统 OS
+          - strong [ref=e166]: Harness
+          - paragraph [ref=e167]: 牵引系统：权限、流程、反馈、门禁
+    - generic [ref=e168]:
+      - generic [ref=e169]: 安全 · 可靠 · 吞吐
+      - generic [ref=e170]: 基础设施优先
+  - generic [ref=e171]:
+    - generic [ref=e172]:
+      - generic [ref=e173]: 计划 · 生成 · 评估
+      - generic [ref=e174]: "08"
+    - generic [ref=e175]:
+      - generic [ref=e176]:
+        - generic [ref=e177]: 牵引系统框架 · Harness Framework
+        - heading "不是让模型想更久，而是让它看到真实反馈后迭代。" [level=2] [ref=e178]
+      - generic [ref=e179]:
+        - generic [ref=e180]:
+          - generic [ref=e181]: 计划 Plan
+          - heading "拆边界" [level=3] [ref=e182]
+          - paragraph [ref=e183]: 明确任务切片、输入、成功标准。
+          - text: →
+        - generic [ref=e184]:
+          - generic [ref=e185]: 生成 Generate
+          - heading "执行切片" [level=3] [ref=e186]
+          - paragraph [ref=e187]: 小步推进，不一次吞下整个项目。
+          - text: →
+        - generic [ref=e188]:
+          - generic [ref=e189]: 评估 Evaluate
+          - heading "证据验收" [level=3] [ref=e190]
+          - paragraph [ref=e191]: 测试、截图、评审器、另一个智能体。
+    - generic [ref=e192]:
+      - generic [ref=e193]: Ralph 循环：生成 → 评估 → 反馈
+      - generic [ref=e194]: 编译器和截图都算反馈
+  - generic [ref=e195]:
+    - generic [ref=e196]:
+      - generic [ref=e197]: Ralph Loop
+      - generic [ref=e198]: "09"
+    - generic [ref=e199]:
+      - generic [ref=e200]:
+        - generic [ref=e201]: 真实反馈后的迭代
+        - heading "重点不是让模型想更久，而是让它看到反馈后重来。" [level=2] [ref=e202]
+        - list [ref=e203]:
+          - listitem [ref=e204]: — 反馈可以来自编译器、测试、lint、Playwright 截图。
+          - listitem [ref=e205]: — 每轮只保留摘要和关键证据，完整日志放回文件系统。
+          - listitem [ref=e206]: — 循环跑久了也会撑爆上下文，所以需要摘要、证据和隔离。
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - generic [ref=e209]: "1"
+          - heading "Generate v1" [level=3] [ref=e210]
+          - paragraph [ref=e211]: 生成第一版
+        - generic [ref=e212]:
+          - generic [ref=e213]: "2"
+          - heading "Evaluate" [level=3] [ref=e214]
+          - paragraph [ref=e215]: 测试、截图、评审器验收
+        - generic [ref=e216]:
+          - generic [ref=e217]: "3"
+          - heading "Feedback" [level=3] [ref=e218]
+          - paragraph [ref=e219]: 只回传关键证据
+        - generic [ref=e220]:
+          - generic [ref=e221]: "4"
+          - heading "Generate v2" [level=3] [ref=e222]
+          - paragraph [ref=e223]: 带反馈再生成
+    - generic [ref=e224]:
+      - generic [ref=e225]: Generate → Evaluate → Feedback → Generate
+      - generic [ref=e226]: 反馈回路比单次思考更可靠
+  - generic [ref=e227]:
+    - generic [ref=e228]:
+      - generic [ref=e229]: 翻车类型
+      - generic [ref=e230]: "10"
+    - generic [ref=e231]:
+      - generic [ref=e232]:
+        - generic [ref=e233]: 智能体四种典型翻车
+        - heading "不加约束的智能体会快速复制并放大坏模式。" [level=2] [ref=e234]
+        - paragraph [ref=e235]: 核心飞轮：犯错 → 人类归因 → 补牵引系统 → 下次同类问题更少。
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - heading "一口吞 One-shotting" [level=3] [ref=e238]:
+            - text: 一口吞
+            - text: One-shotting
+          - paragraph [ref=e239]: 一个会话想做完所有事。
+        - generic [ref=e240]:
+          - heading "过早宣布胜利" [level=3] [ref=e241]
+          - paragraph [ref=e242]: 看到部分进展就说完成。
+        - generic [ref=e243]:
+          - heading "过早标完成" [level=3] [ref=e244]
+          - paragraph [ref=e245]: 写完代码，没有端到端验证。
+        - generic [ref=e246]:
+          - heading "环境启动困难" [level=3] [ref=e247]
+          - paragraph [ref=e248]: 每次新会话重复摸索。
+    - generic [ref=e249]:
+      - generic [ref=e250]: 错误沉淀成基础设施
+      - generic [ref=e251]: 每条规则都来自一次事故
+  - generic [ref=e252]:
+    - generic [ref=e253]:
+      - generic [ref=e254]: 业界共识
+      - generic [ref=e255]: "11"
+    - generic [ref=e256]:
+      - generic [ref=e257]:
+        - generic [ref=e258]: 业界共识
+        - heading "瓶颈不在模型智能，在基础设施。" [level=2] [ref=e259]
+      - generic [ref=e260]:
+        - generic [ref=e261]:
+          - strong [ref=e262]: "7"
+          - paragraph [ref=e263]: OpenAI Codex 团队规模
+          - paragraph [ref=e264]: 小团队能推进百万行级别代码，关键在于把任务、验证和审查流程系统化。
+        - generic [ref=e265]:
+          - strong [ref=e266]: 1M
+          - paragraph [ref=e267]: 自动生成代码行数
+          - paragraph [ref=e268]: 不是“零管理自动写”，而是长期打磨工作流、工具权限和验收门禁。
+        - generic [ref=e269]:
+          - strong [ref=e270]: 6.7→68.3%
+          - paragraph [ref=e271]: 同模型更换牵引系统后的跃迁
+          - paragraph [ref=e272]: LangChain 实验显示，模型不变，只改 harness，任务成功率也能数量级提升。
+        - generic [ref=e273]:
+          - strong [ref=e274]: 5×
+          - paragraph [ref=e275]: Manus 重写牵引系统
+          - paragraph [ref=e276]: 六个月多次重构 harness，每次收益都大于单纯换模型。
+    - generic [ref=e277]:
+      - generic [ref=e278]: 牵引系统是一套工程纪律
+      - generic [ref=e279]: 不是调提示词
+  - generic [ref=e280]:
+    - generic [ref=e281]:
+      - generic [ref=e282]: 7 阶段工作流
+      - generic [ref=e283]: "12"
+    - generic [ref=e285]:
+      - generic [ref=e286]:
+        - generic [ref=e287]: 0 · 启动装载
+        - heading "启动装载 Bootstrap" [level=2] [ref=e288]:
+          - text: 启动装载
+          - text: Bootstrap
+        - paragraph [ref=e289]: project.md / CLAUDE.md / MCP 工具配置是入口底座，不在循环里；它负责让新会话快速进入现场。
+      - generic [ref=e290]:
+        - generic [ref=e291]:
+          - generic [ref=e292]:
+            - generic [ref=e293]: "1"
+            - heading "对齐 Alignment" [level=3] [ref=e294]:
+              - text: 对齐
+              - text: Alignment
+          - paragraph [ref=e295]: 反向盘问 / 提问澄清
+        - generic [ref=e296]:
+          - generic [ref=e297]:
+            - generic [ref=e298]: "2"
+            - heading "设计 Design" [level=3] [ref=e299]:
+              - text: 设计
+              - text: Design
+          - paragraph [ref=e300]: OpenSpec / 纵向切片
+        - generic [ref=e301]:
+          - generic [ref=e302]:
+            - generic [ref=e303]: "3"
+            - heading "实现 Implement" [level=3] [ref=e304]:
+              - text: 实现
+              - text: Implement
+          - paragraph [ref=e305]: TDD / 子智能体 / 工作树
+        - generic [ref=e306]:
+          - generic [ref=e307]:
+            - generic [ref=e308]: "4"
+            - heading "验证 Verify" [level=3] [ref=e309]:
+              - text: 验证
+              - text: Verify
+          - paragraph [ref=e310]: 测试 / 评审器 / 截图
+        - generic [ref=e311]:
+          - generic [ref=e312]:
+            - generic [ref=e313]: "5"
+            - heading "代码审查 Code Review" [level=3] [ref=e314]:
+              - text: 代码审查
+              - text: Code Review
+          - paragraph [ref=e315]: PR 机器人 / 架构债扫描
+        - generic [ref=e316]:
+          - generic [ref=e317]:
+            - generic [ref=e318]: "6"
+            - heading "复盘 Retrospective" [level=3] [ref=e319]:
+              - text: 复盘
+              - text: Retrospective
+          - paragraph [ref=e320]: 规则、规格、技能、评审器回流
+    - generic [ref=e321]:
+      - generic [ref=e322]: Bootstrap 是入口，1-6 是螺旋
+      - generic [ref=e323]: 牵引系统持续优化牵引系统
+  - generic [ref=e324]:
+    - generic [ref=e325]:
+      - generic [ref=e326]: Practice 00
+      - generic [ref=e327]: "13"
+    - generic [ref=e328]:
+      - generic [ref=e329]:
+        - generic [ref=e330]: 启动装载 · Bootstrap
+        - heading "先要智能体明确项目目标。" [level=2] [ref=e331]
+        - paragraph [ref=e332]: "`openspec/project.md` 像给新同事做概要设计入职介绍：系统为什么存在、主要用户是谁、关键 workflow 是什么、哪些边界不能乱动。"
+      - generic [ref=e333]:
+        - generic [ref=e334]:
+          - heading "项目目标" [level=3] [ref=e335]
+          - paragraph [ref=e336]: 这个系统解决什么问题，成功是什么样。
+        - generic [ref=e337]:
+          - heading "架构边界" [level=3] [ref=e338]
+          - paragraph [ref=e339]: 哪些模块稳定，哪些地方不能越界。
+        - generic [ref=e340]:
+          - heading "关键工作流" [level=3] [ref=e341]
+          - paragraph [ref=e342]: 用户如何进入系统，哪些路径最重要。
+        - generic [ref=e343]:
+          - heading "操作入口" [level=3] [ref=e344]
+          - paragraph [ref=e345]: 常用命令、测试命令、日志和排障入口。
+    - generic [ref=e346]:
+      - generic [ref=e347]: 到位信号：新会话能讲清项目
+      - generic [ref=e348]: 项目上下文是活文档
+  - generic [ref=e349]:
+    - generic [ref=e350]:
+      - generic [ref=e351]: Practice 01
+      - generic [ref=e352]: "14"
+    - generic [ref=e353]:
+      - generic [ref=e354]:
+        - generic [ref=e355]: 对齐 · Alignment
+        - heading "先盘问，再执行。" [level=2] [ref=e356]
+        - list [ref=e357]:
+          - listitem [ref=e358]: — Grill Me（反向盘问）：让智能体先问清楚。
+          - listitem [ref=e359]: — Brainstorm（需求共创）：开放探索后收敛。
+          - listitem [ref=e360]: — 对齐结论必须沉淀成一份完整 spec（规格）。
+      - img "Grill Me conversation screenshot" [ref=e361]
+    - generic [ref=e362]:
+      - generic [ref=e363]: 前面慢一点，比后面回滚便宜
+      - generic [ref=e364]: 看证据，不看感觉
+  - generic [ref=e365]:
+    - generic [ref=e366]:
+      - generic [ref=e367]: Practice 01 · Evidence
+      - generic [ref=e368]: "15"
+    - generic [ref=e369]:
+      - generic [ref=e370]:
+        - generic [ref=e371]: 需求共创 · Brainstorm
+        - heading "开放探索必须有收敛出口。" [level=2] [ref=e372]
+        - paragraph [ref=e373]: 好的对齐流程会把模糊讨论沉淀成 spec（规格），而不是让对话本身成为唯一记忆。
+      - img "Brainstorming workflow screenshot" [ref=e374]
+    - generic [ref=e375]:
+      - generic [ref=e376]: 对话不是持久记忆
+      - generic [ref=e377]: 规格才是工作合同
+  - generic [ref=e378]:
+    - generic [ref=e379]:
+      - generic [ref=e380]: Practice 02
+      - generic [ref=e381]: "16"
+    - generic [ref=e382]:
+      - generic [ref=e383]:
+        - generic [ref=e384]: 设计 · OpenSpec 规格系统
+        - heading "规格文档是智能体的工作合同。" [level=2] [ref=e385]
+        - paragraph [ref=e386]: 提案写清楚为什么做、做什么、不做什么；设计写取舍；任务清单写可验证的小步任务。
+      - generic [ref=e387]:
+        - generic [ref=e388]:
+          - generic [ref=e389]: "01"
+          - heading "提案 Proposal" [level=3] [ref=e390]:
+            - text: 提案
+            - text: Proposal
+          - paragraph [ref=e391]: 边界、成功标准、非目标
+        - generic [ref=e392]:
+          - generic [ref=e393]: "02"
+          - heading "实现 Implementation" [level=3] [ref=e394]:
+            - text: 实现
+            - text: Implementation
+          - paragraph [ref=e395]: 按任务清单小步实现
+        - generic [ref=e396]:
+          - generic [ref=e397]: "03"
+          - heading "归档 Archive" [level=3] [ref=e398]:
+            - text: 归档
+            - text: Archive
+          - paragraph [ref=e399]: 合并进长期规格库
+      - generic [ref=e400]: openspec/ project.md specs/<capability>/spec.md changes/<change-id>/ proposal.md design.md tasks.md
+    - generic [ref=e401]:
+      - generic [ref=e402]: 进度持久化在文件系统
+      - generic [ref=e403]: 不只存在对话上下文里
+  - generic [ref=e404]:
+    - generic [ref=e405]:
+      - generic [ref=e406]: Practice 02 · Evidence
+      - generic [ref=e407]: "17"
+    - generic [ref=e408]:
+      - generic [ref=e409]:
+        - generic [ref=e410]: 设计审查 · Design Review
+        - heading "先审查书面计划，再写代码。" [level=2] [ref=e411]
+        - paragraph [ref=e412]: 计划本身也需要审查门禁：范围、文件边界、测试映射、风险和回滚点。
+      - img "Plan workflow screenshot" [ref=e413]
+    - generic [ref=e414]:
+      - generic [ref=e415]: 计划审查通过前，不让它写代码
+      - generic [ref=e416]: 纵向小切片优于横向分层
+  - generic [ref=e417]:
+    - generic [ref=e418]:
+      - generic [ref=e419]: Practice 03
+      - generic [ref=e420]: "18"
+    - generic [ref=e421]:
+      - generic [ref=e422]:
+        - generic [ref=e423]: 实现 · Implement
+        - heading "隔离上下文，也隔离工作空间。" [level=2] [ref=e424]
+        - list [ref=e425]:
+          - listitem [ref=e426]: — TDD（测试驱动开发）把“完成”变成可执行。
+          - listitem [ref=e427]: — Ralph Loop（生成-评估循环）适合反复试错。
+          - listitem [ref=e428]: — Subagents（子智能体）和 worktrees（工作树）控制影响范围。
+      - img "Subagent workflow screenshot" [ref=e429]
+    - generic [ref=e430]:
+      - generic [ref=e431]: 主智能体负责目标和验收标准
+      - generic [ref=e432]: 子智能体负责边界清楚的小任务
+  - generic [ref=e433]:
+    - generic [ref=e434]:
+      - generic [ref=e435]: Practice 04
+      - generic [ref=e436]: "19"
+    - generic [ref=e437]:
+      - generic [ref=e438]:
+        - generic [ref=e439]: 验证 · eval-loop 评估循环
+        - heading "让智能体看到自己生成的 UI。" [level=2] [ref=e440]
+        - paragraph [ref=e441]: 验证不只给数字分数，也给 Playwright 截图和自包含任务包。
+      - generic [ref=e442]:
+        - generic [ref=e443]:
+          - generic [ref=e444]: "1"
+          - paragraph [ref=e445]: LLM 重新生成 DSL 快照
+        - generic [ref=e446]:
+          - generic [ref=e447]: "2"
+          - paragraph [ref=e448]: Playwright 渲染并截图
+        - generic [ref=e449]:
+          - generic [ref=e450]: "3"
+          - paragraph [ref=e451]: LLM-as-Judge（大模型评审器）四维打分
+        - generic [ref=e452]:
+          - generic [ref=e453]: "4"
+          - paragraph [ref=e454]: 输出总结、截图、适配器提示词
+        - generic [ref=e455]:
+          - generic [ref=e456]: "5"
+          - paragraph [ref=e457]: 智能体修源码，验证重跑，报告变化量
+    - generic [ref=e458]:
+      - generic [ref=e459]: 生成器-评估器模式落地
+      - generic [ref=e460]: 视觉反馈闭合循环
+  - generic [ref=e461]:
+    - generic [ref=e462]:
+      - generic [ref=e463]: Practice 04 · Judge
+      - generic [ref=e464]: "20"
+    - generic [ref=e465]:
+      - generic [ref=e466]:
+        - generic [ref=e467]: 评审器 Judge 的四个维度
+        - heading "DSL 好坏不是二元判断。" [level=2] [ref=e468]
+      - generic [ref=e469]:
+        - generic [ref=e470]:
+          - strong [ref=e472]: 维度
+          - strong [ref=e474]: 衡量什么
+          - strong [ref=e476]: 对应翻车
+        - generic [ref=e477]:
+          - generic [ref=e478]:
+            - text: 组件匹配
+            - text: component_fit
+          - generic [ref=e479]: 组件类型对吗
+          - generic [ref=e480]: 表格数据被渲成卡片
+        - generic [ref=e481]:
+          - generic [ref=e482]:
+            - text: 数据完整
+            - text: data_completeness
+          - generic [ref=e483]: 字段全吗
+          - generic [ref=e484]: 关键字段被省略
+        - generic [ref=e485]:
+          - generic [ref=e486]:
+            - text: 格式质量
+            - text: format_quality
+          - generic [ref=e487]: 格式对吗
+          - generic [ref=e488]: 时间戳原样输出
+        - generic [ref=e489]:
+          - generic [ref=e490]:
+            - text: 布局清晰
+            - text: layout_coherence
+          - generic [ref=e491]: 层级清晰吗
+          - generic [ref=e492]: 密度失控、结构混乱
+    - generic [ref=e493]:
+      - generic [ref=e494]: 人工修正回流到评审器
+      - generic [ref=e495]: 评分维度对应真实翻车类型
+  - generic [ref=e496]:
+    - generic [ref=e497]:
+      - generic [ref=e498]: Practice 04 · Delta
+      - generic [ref=e499]: "21"
+    - generic [ref=e500]:
+      - generic [ref=e501]:
+        - generic [ref=e502]: 真实数据迭代
+        - heading "6.4 → 7.8，不是靠感觉修出来的。" [level=2] [ref=e503]
+        - paragraph [ref=e504]: 评审器指出组件匹配和格式质量最低，智能体读任务包 + 看截图后修源码，再用验证命令量化回归。
+      - generic [ref=e505]:
+        - generic [ref=e506]: 6.4 → 7.8
+        - generic [ref=e507]:
+          - generic [ref=e510]: 组件匹配 前
+          - generic [ref=e513]: 组件匹配 后
+          - generic [ref=e516]: 格式质量 前
+          - generic [ref=e519]: 格式质量 后
+    - generic [ref=e520]:
+      - generic [ref=e521]: 分数变化是验收信号
+      - generic [ref=e522]: 截图是调试对象
+  - generic [ref=e523]:
+    - generic [ref=e524]:
+      - generic [ref=e525]: Practice 05
+      - generic [ref=e526]: "22"
+    - generic [ref=e527]:
+      - generic [ref=e528]:
+        - generic [ref=e529]: 代码审查 · Code Review
+        - heading "用全新上下文的智能体来审查。" [level=2] [ref=e530]
+        - paragraph [ref=e531]: 作者/审查者模式比单智能体自查可靠。合入前再配 PR 机器人和定期架构债扫描。
+      - img "Code reviewer workflow screenshot" [ref=e532]
+    - generic [ref=e533]:
+      - generic [ref=e534]: 新上下文带来批判距离
+      - generic [ref=e535]: 重复反馈变成 lint 规则或评审标准
+  - generic [ref=e536]:
+    - generic [ref=e537]:
+      - generic [ref=e538]: Practice 06
+      - generic [ref=e539]: "23"
+    - generic [ref=e540]:
+      - generic [ref=e541]:
+        - generic [ref=e542]: 复盘 · Retrospective
+        - heading "整个循环的复利引擎。" [level=2] [ref=e543]
+        - paragraph [ref=e544]: 复盘不是写总结，而是把失败沉淀进下一次启动时智能体会自动读到、自动遵守、自动验证的地方。
+      - generic [ref=e545]:
+        - generic [ref=e546]:
+          - heading "project.md" [level=3] [ref=e547]
+          - paragraph [ref=e548]: 项目背景、架构边界
+        - generic [ref=e549]:
+          - heading "specs 规格库" [level=3] [ref=e550]
+          - paragraph [ref=e551]: 长期能力规格
+        - generic [ref=e552]:
+          - heading "skills 技能" [level=3] [ref=e553]
+          - paragraph [ref=e554]: 重复工作流
+        - generic [ref=e555]:
+          - heading "judge / hooks" [level=3] [ref=e556]
+          - paragraph [ref=e557]: 评审器 / 钩子：必须发生的验证
+    - generic [ref=e558]:
+      - generic [ref=e559]: 反馈回流到启动装载和设计阶段
+      - generic [ref=e560]: 牵引系统持续优化牵引系统
+  - generic [ref=e561]:
+    - generic [ref=e562]:
+      - generic [ref=e563]: 未来形态 · Future Shape
+      - heading "从驱动智能体，到监督智能体。" [level=2] [ref=e564]
+      - paragraph [ref=e565]: 成熟的牵引系统会把项目看板、隔离工作区、验证证据和 PR 代码审查连成控制平面。人类从逐步驾驶，上移到审查证据和加固基础设施。
+      - paragraph [ref=e566]:
+        - strong [ref=e567]: Symphony
+        - text: 是 OpenAI 开源的 Codex 编排项目：把议题、隔离工作区、自动实现、验证证据和 PR 串成面向多智能体执行的控制平面。
+        - link "github.com/openai/symphony" [ref=e568] [cursor=pointer]:
+          - /url: https://github.com/openai/symphony
+      - list [ref=e569]:
+        - listitem [ref=e570]: — 任务边界清楚：议题 / 提案 / 任务清单
+        - listitem [ref=e571]: — 执行环境隔离：每个任务独立工作区
+        - listitem [ref=e572]: — 验证体系可靠：测试 / 评估 / 评审器 / 审查
+    - img "Autonomous coding agent control plane visual" [ref=e573]
+  - generic [ref=e574]:
+    - generic [ref=e575]:
+      - generic [ref=e576]: 收束
+      - generic [ref=e577]: "25"
+    - generic [ref=e578]:
+      - generic [ref=e579]:
+        - generic [ref=e580]: 本场收束
+        - heading "驾驭工程本质上是基于大模型的软件工程。" [level=2] [ref=e581]
+      - generic [ref=e582]:
+        - paragraph [ref=e583]: 真正稀缺的不再是多写几句提示词，而是定义任务边界、设计反馈回路、控制权限和风险、把失败沉淀成基础设施。
+        - generic [ref=e584]:
+          - heading "工程师不会消失。" [level=3] [ref=e585]
+          - paragraph [ref=e586]: 工程师的重心会上移：建设让智能体可以可靠工作的基础设施。
+    - generic [ref=e587]:
+      - generic [ref=e588]: 先建设牵引系统，再持续改进牵引系统
+      - generic [ref=e589]: 谢谢
+  - generic [ref=e590]:
+    - generic [ref=e591]:
+      - generic [ref=e592]: 参考资料
+      - generic [ref=e593]: 附录
+    - generic [ref=e594]:
+      - generic [ref=e595]:
+        - generic [ref=e596]: 关键参考资料
+        - heading "参考资料" [level=2] [ref=e597]
+      - generic [ref=e598]:
+        - link "李宏毅：Harness Engineering 课堂视频" [ref=e599] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=R6fZR_9kmIw
+        - link "李宏毅：Context Engineering 基本概念" [ref=e600] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=urwDLyNa9FU&t=2450s
+        - link "OpenAI：Harness Engineering" [ref=e601] [cursor=pointer]:
+          - /url: https://openai.com/index/harness-engineering/
+        - link "Anthropic：Harness Design" [ref=e602] [cursor=pointer]:
+          - /url: https://www.anthropic.com/engineering/harness-design-long-running-apps
+        - link "Martin Fowler：Harness Engineering" [ref=e603] [cursor=pointer]:
+          - /url: https://martinfowler.com/articles/harness-engineering.html
+        - link "LangChain：The Anatomy of an Agent Harness" [ref=e604] [cursor=pointer]:
+          - /url: https://www.langchain.com/blog/the-anatomy-of-an-agent-harness
+        - link "OpenAI：Symphony" [ref=e605] [cursor=pointer]:
+          - /url: https://openai.com/index/open-source-codex-orchestration-symphony/
+        - link "Symphony GitHub repo" [ref=e606] [cursor=pointer]:
+          - /url: https://github.com/openai/symphony
+    - generic [ref=e607]:
+      - generic [ref=e608]: 附录
+      - generic [ref=e609]: 驾驭工程 Harness Engineering
