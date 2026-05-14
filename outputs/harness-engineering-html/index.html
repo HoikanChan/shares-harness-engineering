@@ -447,7 +447,7 @@
       }
 
       .timeline .stage {
-        min-height: 43vh;
+        min-height: 36vh;
         padding: clamp(1rem, 2vw, 2rem);
         border-right: 1px solid var(--line);
         display: flex;
@@ -455,8 +455,42 @@
         justify-content: space-between;
       }
 
+      .conclusion-bar {
+        border-top: 1px solid rgba(192, 112, 48, 0.5);
+        padding: clamp(0.75rem, 1.3vw, 1.2rem) clamp(0.8rem, 1.8vw, 1.8rem);
+        background: rgba(192, 112, 48, 0.07);
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 1.8vw, 1.8rem);
+      }
+
+      .conclusion-label {
+        font-family: var(--font-mono);
+        font-size: var(--small);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        white-space: nowrap;
+        padding-right: clamp(0.8rem, 1.5vw, 1.5rem);
+        border-right: 1px solid rgba(192, 112, 48, 0.4);
+      }
+
+      .conclusion-formula {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(1.4rem, 2.6vw, 2.6rem);
+        line-height: 1;
+        letter-spacing: -0.01em;
+      }
+
       .timeline .stage:last-child {
         border-right: 0;
+      }
+
+      .timeline .stage p.muted {
+        color: var(--ink-soft);
+        font-size: clamp(0.88rem, 1.3vw, 1.18rem);
+        line-height: 1.6;
       }
 
       .year {
@@ -1373,13 +1407,108 @@
       .visible .reveal:nth-child(4) { transition-delay: 230ms; }
       .visible .reveal:nth-child(5) { transition-delay: 300ms; }
 
+      /* S9 — 落地装备 */
+      .gear-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        gap: clamp(1.2rem, 4vw, 5rem);
+        align-items: center;
+      }
+
+      .tool-stack {
+        display: grid;
+        gap: 0.55rem;
+        margin-top: 0.35rem;
+      }
+
+      .tool-card {
+        border: 1px solid var(--line);
+        padding: clamp(0.55rem, 0.9vw, 0.85rem) clamp(0.75rem, 1.2vw, 1.1rem);
+        display: grid;
+        gap: 0.25rem;
+        background: rgba(240, 232, 210, 0.04);
+      }
+
+      .tool-card.main {
+        border-color: rgba(192, 112, 48, 0.42);
+        background: rgba(192, 112, 48, 0.06);
+      }
+
+      .tool-crossreview {
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: var(--small);
+        letter-spacing: 0.12em;
+        color: var(--cyan);
+        padding: 0.05rem 0;
+      }
+
+      .skill-table {
+        border: 1px solid var(--line);
+        display: grid;
+      }
+
+      .skill-row {
+        display: grid;
+        grid-template-columns: minmax(5.5rem, 6.5rem) 1fr auto;
+        gap: 0.4rem 0.75rem;
+        align-items: center;
+        padding: clamp(0.6rem, 0.95vw, 0.88rem) clamp(0.7rem, 1.1vw, 1rem);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .skill-row:last-child {
+        border-bottom: none;
+      }
+
+      .skill-row-header {
+        background: rgba(240, 232, 210, 0.04);
+        font-family: var(--font-mono);
+        font-size: 0.72em;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+      }
+
+      .skill-name {
+        font-family: var(--font-mono);
+        font-size: clamp(0.68rem, 0.85vw, 0.85rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        font-weight: 500;
+      }
+
+      .skill-desc {
+        font-size: var(--body);
+        line-height: 1.42;
+      }
+
+      .skill-when {
+        font-family: var(--font-mono);
+        font-size: clamp(0.6rem, 0.7vw, 0.72rem);
+        color: var(--ink-dim);
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+        text-align: right;
+      }
+
       @media (max-width: 860px) {
         .grid-2,
+        .gear-grid,
         .hero,
         .image-slide,
         .pipeline,
         .closing {
           grid-template-columns: 1fr;
+        }
+
+        .skill-row {
+          grid-template-columns: 1fr;
+        }
+
+        .skill-when {
+          text-align: left;
         }
 
         .hero-visual,
@@ -1527,7 +1656,7 @@
               <ul class="ceiling-detail">
                 <li><strong>机制</strong>生成路径和评估路径共享同一套盲点。</li>
                 <li><strong>表现</strong>看见局部通过就宣布完成，忽略端到端证据。</li>
-                <li><strong>后果</strong>缺陷被包装成“基本完成”，回滚成本被推到后面。</li>
+                <li><strong>后果</strong>缺陷被包装成“基本完成"，回滚成本被推到后面。</li>
               </ul>
             </div>
           </div>
@@ -1546,19 +1675,23 @@
         <div class="timeline reveal">
           <div class="stage">
             <div><div class="year">2022</div><h3>提示词工程<br /><span class="term">Prompt Engineering</span></h3></div>
-            <p class="muted">模型很笨但听话，工程师雕一条“完美提示词”。</p>
+            <p class="muted">模型很笨但听话，工程师雕一条"完美提示词"。</p>
           </div>
           <div class="stage">
             <div><div class="year">2025</div><h3>上下文工程<br /><span class="term">Context Engineering</span></h3></div>
-            <p class="muted">模型会用工具，工程师决定“给它看什么”。</p>
+            <p class="muted">模型会用工具，工程师决定"给它看什么"。</p>
           </div>
           <div class="stage">
             <div><div class="year accent">2026</div><h3>驾驭工程<br /><span class="term">Harness Engineering</span></h3></div>
             <p class="muted">模型可以自己跑，工程师搭安全、反馈和门禁。</p>
           </div>
         </div>
+        <div class="conclusion-bar reveal">
+          <span class="conclusion-label">LangChain 定义</span>
+          <p class="conclusion-formula">Agent = LLM + Harness</p>
+        </div>
       </div>
-      <footer class="foot"><span>智能体 = 模型 + 驾驭工程</span><span>提示词和上下文被纳入更大系统</span></footer>
+      <footer class="foot"><span>三个阶段是包含关系，不是替代关系</span><span>提示词和上下文被纳入更大系统</span></footer>
     </section>
 
     <section class="slide dark">
@@ -1780,7 +1913,7 @@
                 <code>(prompt, 磁盘状态) → 新的磁盘状态</code>
               </div>
             </div>
-            <div class="memory-line">“记忆”不再是 LLM 的负担，而是工程问题：交给 git、文件、AGENTS.md。</div>
+            <div class="memory-line">“记忆"不再是 LLM 的负担，而是工程问题：交给 git、文件、AGENTS.md。</div>
           </div>
         </div>
 
@@ -1788,7 +1921,7 @@
           <div class="stack">
             <span class="pill">为什么必须无状态</span>
             <ul class="why-list">
-              <li>LLM 的 “malloc 没有 free”：context 只进不出，长会话注定劣化。</li>
+              <li>LLM 的 “malloc 没有 free"：context 只进不出，长会话注定劣化。</li>
               <li>无状态 = 可重试、可并行、可中断、可审计。</li>
               <li>前提：可靠反馈回路 + 明确完成信号。</li>
             </ul>
@@ -1835,7 +1968,56 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>7 阶段工作流</span><span>10</span></header>
+      <header class="chrome"><span>落地装备</span><span>10</span></header>
+      <div class="content gear-grid">
+        <div class="stack">
+          <span class="kicker reveal">蓝区 · 我们的工程环境</span>
+          <h2 class="reveal" style="font-size: clamp(1.8rem, 3.5vw, 3.5rem)">落地装备<br /><span class="term">工具 × Skill</span></h2>
+          <div class="tool-stack reveal">
+            <div class="tool-card main">
+              <span class="pill">Claude Code</span>
+              <p class="muted">主力 agent，日常交互 · 写代码 · 跑 skill</p>
+            </div>
+            <div class="tool-crossreview">↔ 互相交叉检视</div>
+            <div class="tool-card main">
+              <span class="pill">Codex</span>
+              <p class="muted">主力 agent，并行执行与独立检视</p>
+            </div>
+            <div class="tool-card">
+              <span class="pill">OpenCode (GLM5)</span>
+              <p class="muted">低成本长任务委托，via MCP opencode-bridge</p>
+            </div>
+          </div>
+        </div>
+        <div class="stack">
+          <span class="kicker reveal">Skill 层</span>
+          <div class="skill-table reveal">
+            <div class="skill-row skill-row-header">
+              <span>Skill</span><span>定位</span><span>触发时机</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Grill-me</span>
+              <p class="skill-desc">让 agent 反向盘问你，把隐藏假设逼出来</p>
+              <span class="skill-when">进入 Design 前</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">OpenSpec</span>
+              <p class="skill-desc">规格状态机，把需求变成 agent 的工作合同</p>
+              <span class="skill-when">Design → Implement</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Superpowers</span>
+              <p class="skill-desc">完整开发工作流插件，spec-first · TDD · subagent 自动触发</p>
+              <span class="skill-when">全程</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="foot"><span>Writer/Reviewer 模式的工具层落地</span><span>Skill 层全程自动触发最佳实践</span></footer>
+    </section>
+
+    <section class="slide dark">
+      <header class="chrome"><span>7 阶段工作流</span><span>11</span></header>
       <div class="content">
         <div class="workflow-map reveal">
           <div class="bootstrap-base">
@@ -1857,7 +2039,7 @@
     </section>
 
     <section class="slide light">
-      <header class="chrome"><span>Practice 00</span><span>11</span></header>
+      <header class="chrome"><span>Practice 00</span><span>12</span></header>
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">启动装载 · Bootstrap</span>
@@ -1875,7 +2057,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 01</span><span>12</span></header>
+      <header class="chrome"><span>Practice 01</span><span>13</span></header>
       <div class="content image-slide">
         <div class="stack">
           <span class="kicker reveal">对齐 · Alignment</span>
@@ -1892,7 +2074,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 01 · Evidence</span><span>13</span></header>
+      <header class="chrome"><span>Practice 01 · Evidence</span><span>14</span></header>
       <div class="content image-slide">
         <div class="stack">
           <span class="kicker reveal">需求共创 · Brainstorm</span>
@@ -1905,7 +2087,7 @@
     </section>
 
     <section class="slide light">
-      <header class="chrome"><span>Practice 02</span><span>14</span></header>
+      <header class="chrome"><span>Practice 02</span><span>15</span></header>
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">设计 · OpenSpec 规格系统</span>
@@ -1929,7 +2111,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 02 · Evidence</span><span>15</span></header>
+      <header class="chrome"><span>Practice 02 · Evidence</span><span>16</span></header>
       <div class="content image-slide">
         <div class="stack">
           <span class="kicker reveal">设计审查 · Design Review</span>
@@ -1942,13 +2124,13 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 03</span><span>16</span></header>
+      <header class="chrome"><span>Practice 03</span><span>17</span></header>
       <div class="content image-slide">
         <div class="stack">
           <span class="kicker reveal">实现 · Implement</span>
           <h2 class="reveal">隔离上下文，也隔离工作空间。</h2>
           <ul class="bullet reveal">
-            <li>TDD（测试驱动开发）把“完成”变成可执行。</li>
+            <li>TDD（测试驱动开发）把“完成"变成可执行。</li>
             <li>Ralph Loop（生成-评估循环）适合反复试错。</li>
             <li>Subagents（子智能体）和 worktrees（工作树）控制影响范围。</li>
           </ul>
@@ -1959,7 +2141,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 04</span><span>17</span></header>
+      <header class="chrome"><span>Practice 04</span><span>18</span></header>
       <div class="content pipeline">
         <div class="stack">
           <span class="kicker reveal">验证 · eval-loop 评估循环</span>
@@ -1978,7 +2160,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 04 · Judge</span><span>18</span></header>
+      <header class="chrome"><span>Practice 04 · Judge</span><span>19</span></header>
       <div class="content">
         <div class="stack">
           <span class="kicker reveal">评审器 Judge 的四个维度</span>
@@ -1996,7 +2178,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 04 · Delta</span><span>19</span></header>
+      <header class="chrome"><span>Practice 04 · Delta</span><span>20</span></header>
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">真实数据迭代</span>
@@ -2017,7 +2199,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>Practice 05</span><span>20</span></header>
+      <header class="chrome"><span>Practice 05</span><span>21</span></header>
       <div class="content image-slide">
         <div class="stack">
           <span class="kicker reveal">代码审查 · Code Review</span>
@@ -2030,7 +2212,7 @@
     </section>
 
     <section class="slide light">
-      <header class="chrome"><span>Practice 06</span><span>21</span></header>
+      <header class="chrome"><span>Practice 06</span><span>22</span></header>
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">复盘 · Retrospective</span>
@@ -2063,7 +2245,7 @@
     </section>
 
     <section class="slide dark">
-      <header class="chrome"><span>收束</span><span>23</span></header>
+      <header class="chrome"><span>收束</span><span>24</span></header>
       <div class="content grid-2">
         <div class="stack">
           <span class="kicker reveal">本场收束</span>
